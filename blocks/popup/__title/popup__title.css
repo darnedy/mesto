@@ -13,7 +13,7 @@
   .popup__title {
     font-weight: 900;
     font-size: 17px;
-    line-height: 22px; 
+    line-height: 22px;
     margin-left: calc(22px + (100vw - 320px)*(14 / 960));
     padding-top: calc(25px + (100vw - 320px)*(9 / 960));
     margin-right: calc(22px + (100vw - 320px)*(42 / 960));
