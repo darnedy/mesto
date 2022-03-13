@@ -1,0 +1,25 @@
+.popup__input {
+  font-size: 14px;
+  line-height: 14px;
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 13px;
+  width: 358px;
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 1279px) {
+  .popup__input {
+    width: calc(238px + (100vw - 320px)*(120 / 960));
+    margin-left: calc(22px + (100vw - 320px)*(14 / 960));
+    margin-right: calc(22px + (100vw - 320px)*(14 / 960));
+    margin-top: calc(50px - (100vw - 320px)*(20 / 960));
+  }
+
+  .popup__input:nth-of-type(2) {
+    margin-top: 30px;
+  }
+}

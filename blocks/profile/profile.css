@@ -1,0 +1,24 @@
+.profile {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 36.25px;
+  width: 880px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+@media screen and (max-width: 1279px) {
+  .profile {
+    padding-top: calc(38.25px - (100vw - 320px)*(2 / 960));
+    width: calc(282px + (100vw - 320px)*(598 / 960));
+    margin-left: calc(19px + (100vw - 320px)*(181 / 960));
+    margin-right: calc(19px + (100vw - 320px)*(181 / 960));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile {
+    flex-direction: column;
+  }
+}

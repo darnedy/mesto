@@ -1,0 +1,21 @@
+.popup {
+  display: none;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-left: 425px;
+  padding-top: 195px;
+  padding-right: 425px;
+}
+
+@media screen and (max-width: 1279px) {
+  .popup {
+    padding-left: calc(19px + (100vw - 320px)*(406 / 960));
+    padding-top: calc(123px + (100vw - 320px)*(72 / 960));
+    padding-right: calc(19px + (100vw - 320px)*(406 / 960));
+  }
+}

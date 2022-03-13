@@ -1,0 +1,10 @@
+.photo-grid__like {
+  position: absolute;
+  bottom: 29px;
+  right: 20px;
+  transition: opacity 0.5s linear;
+}
+
+.photo-grid__like:hover {
+  opacity: 0.5;
+}
