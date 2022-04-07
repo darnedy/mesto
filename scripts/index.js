@@ -4,33 +4,20 @@ const closePopup = popup.querySelector('.popup__close');
 
 let formElement = popup.querySelector('.popup__container');
 let nameInput = formElement.querySelector('.popup__input_type_name');
-let descriptionInput = formElement.querySelector('.popup__input_description');
+let descriptionInput = formElement.querySelector('.popup__input_type_description');
 let profileName = document.querySelector('.profile__name');
 let profileDescription = document.querySelector('.profile__description');
-
-// function togglePopup() {
-//     popup.classList.toggle('popup_opened') 
-// };
-
-// openPopup.addEventListener('click',togglePopup);
-
-// closePopup.addEventListener('click',togglePopup);
 
 function popupOpen() {
     popup.classList.add('popup_opened');
   
     nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-  }
+    descriptionInput.value = profileDescription.textContent;
+  };
   
   function popupClose() {
     popup.classList.remove('popup_opened');
-  }
-
-
-// let formElement = popup.querySelector('.popup__container');
-// let nameInput = formElement.querySelector('.popup__input_type_name');
-// let descriptionInput = formElement.querySelector('.popup__input_description');
+  };
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
@@ -52,6 +39,7 @@ function formSubmitHandler (evt) {
     profileDescription.textContent = description;
 
     popupClose();
+
 }
 
 // Прикрепляем обработчик к форме:
