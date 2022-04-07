@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .profile {
+  .elements {
     margin-top: calc(36px + (100vw - 320px)*(17.25 / 960));
     width: calc(282px + (100vw - 320px)*(598 / 960));
     margin-left: calc(19px + (100vw - 320px)*(181 / 960));

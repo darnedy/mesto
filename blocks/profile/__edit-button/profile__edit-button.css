@@ -10,8 +10,17 @@
   background: #000 url('../../../images/edit-button.svg') center no-repeat;
   font-size: 0; /* Скрываем текст */
   cursor: pointer;
+  background-size: 10px 10px;
 }
 
 .profile__edit-button:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile__edit-button {
+    width: calc(18px + (100vw - 320px)*(6 / 960));
+    height: calc(18px + (100vw - 320px)*(6 / 960));
+    background-size: 7.5px;
+  }
 }
