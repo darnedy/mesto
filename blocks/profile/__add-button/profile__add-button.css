@@ -6,6 +6,7 @@
   border-radius: 2px;
   background: #000 url('../../../images/add-button.svg') center no-repeat;
   transition: opacity 0.5s linear;
+  cursor: pointer;
 }
 
 .profile__add-button:hover {

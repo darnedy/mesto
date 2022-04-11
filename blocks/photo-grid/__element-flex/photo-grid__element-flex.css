@@ -1,0 +1,8 @@
+.photo-grid__element-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 21px;
+  padding-left: 21px;
+  padding-right: 21px;
+}
