@@ -3,7 +3,7 @@
   bottom: 29px;
   right: 20px; */
   transition: opacity 0.5s linear;
-  background: url('../../../images/like.svg') center no-repeat; 
+  background: url('../../../images/like.svg') center no-repeat;
   cursor: pointer;
   width: 22px;
   height: 19px;
