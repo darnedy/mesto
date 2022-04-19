@@ -11,8 +11,14 @@
   .header {
     padding-top: calc(28px + (100vw - 320px)*(17 / 960));
     width: calc(320px + (100vw - 320px)*(550 / 960));
-    margin-left: calc((100vw - 320px)*(200 / 960));
-    margin-right: calc((100vw - 320px)*(200 / 960));
+    /* margin-left: calc((100vw - 320px)*(200 / 960));
+    margin-right: calc((100vw - 320px)*(200 / 960)); */
     padding-bottom: 31.6px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header {
+    width: 100%;
   }
 }

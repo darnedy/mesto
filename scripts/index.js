@@ -27,16 +27,16 @@ function formSubmitHandler (evt) {
                                                 // О том, как это делать, расскажем позже.
 
     // Получите значение полей jobInput и nameInput из свойства value
-    let name = nameInput.value;
-    let description = descriptionInput.value;
+    // let name = nameInput.value;
+    // let description = descriptionInput.value;
 
     // Выберите элементы, куда должны быть вставлены значения полей
     // let profileName = document.querySelector('.profile__name');
     // let profileDescription = document.querySelector('.profile__description');
 
     // Вставьте новые значения с помощью textContent
-    profileName.textContent = name;
-    profileDescription.textContent = description;
+    profileName.textContent = nameInput.value;
+    profileDescription.textContent =descriptionInput.value;
 
     popupClose();
 

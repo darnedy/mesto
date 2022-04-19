@@ -83,14 +83,14 @@
     </footer>
 
 	<div class="popup">
-		<div>
-			<form action="#" method="POST" class="popup__container" name="popup__form">
+		<div class="popup__container">
+			<button class="popup__close" type="button" aria-label="Закрыть попап"></button>
+			<form action="#" method="POST" class="popup__form" name="popup__form">
 				<h2 class="popup__title">Редактировать профиль</h2>
-				<input type="text" value="Жак-Ив Кусто" placeholder="Ваше имя" class="popup__input popup__input_type_name" name="input__name">
-				<input type="text" value="Исследователь океана" placeholder="Описание" class="popup__input popup__input_type_description" name="input__description">
+				<input type="text" placeholder="Ваше имя" class="popup__input popup__input_type_name" name="input__name">
+				<input type="text" placeholder="Описание" class="popup__input popup__input_type_description" name="input__description">
 				<input type="submit" value="Сохранить" class="popup__submit">
 			</form>
-			<button class="popup__close" type="button" aria-label="Закрыть попап"></button>
 		</div>
 	</div>
   </div>

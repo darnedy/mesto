@@ -2,13 +2,13 @@
   background: url('../../../images/popup_close.svg') center no-repeat;
   width: 32px;
   height: 32px;
-  position: relative;
+  position: absolute;
   padding: 0;
   border: 0;
-  top: -370px;
-  right: -430px;
-  /* top: 155px;
-  right: 385px; */
+  top: -40px;
+  right: -40px;
+  /* top: calc(50vh - 210px);
+  right: calc(50vw - 250px); */
   transition: opacity 0.5s linear;
   cursor: pointer;
 }
@@ -17,17 +17,10 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 700px) {
-  .popup__close {
-    /* top: 87px; */
-    right: -330px;
-  }
-}
-
 @media screen and (max-width: 450px) {
   .popup__close {
     background-size: 20px;
-    top: -365px;
-    right: -260px;
+    top: -36px;
+    right: 0;
   }
 }
