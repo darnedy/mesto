@@ -52,6 +52,10 @@ const initialCards = [
 const photoTemplate = document.querySelector('#photo-grid-template').content.querySelector('.photo-grid__element');
 const photoContainer = document.querySelector('.photo-grid');
 
+const handlerLike = (evt) => {
+  evt.target.closest('.photo-grid__like').classList.toggle('photo-grid__like_active');
+};
+
 const generatePhotoCard = (photoCard) => {
   const newPhotoCard = photoTemplate.cloneNode(true);
 
@@ -61,6 +65,9 @@ const generatePhotoCard = (photoCard) => {
   const urlPhotoCard = newPhotoCard.querySelector('.photo-grid__pic');
   urlPhotoCard.src = photoCard.link;
   urlPhotoCard.alt = photoCard.name;
+
+  const likeButton = newPhotoCard.querySelector('.photo-grid__like');
+  likeButton.addEventListener('click', handlerLike);
 
   return newPhotoCard;
 }
@@ -78,6 +85,7 @@ function formSubmitHandlerPhoto (evt) {
   formPhotoUrl.value = '';
   popupClose(popupPhoto);
 };
+
 
 // formPhoto.addEventListener('submit', formSubmitHandlerPhoto); 
 
