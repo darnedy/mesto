@@ -26,11 +26,10 @@
 
 		<section class="elements">
 			<ul class="photo-grid">
-			  <li class="photo-grid__element">
+			  <!-- <li class="photo-grid__element">
 				<img src="./images/karachaevsk.jpg" alt="Карачаевск" class="photo-grid__pic">
 				<div class="photo-grid__element-flex">
 					<h2 class="photo-grid__title">Карачаевск</h2>
-					<!-- <a href="#" class="photo-grid__like" target="_self"><img src="./images/like.svg" alt="Нравится"></a> -->
 					<button type="button" title="Нравится" class="photo-grid__like"></button>
 				</div>
 			  </li>
@@ -38,7 +37,6 @@
 				<img src="./images/elbrus.png" alt="Гора Эльбрус" class="photo-grid__pic">
 				<div class="photo-grid__element-flex">
 					<h2 class="photo-grid__title">Гора Эльбрус</h2>
-					<!-- <a href="#" class="photo-grid__like photo-grid__like_active" target="_self"><img src="./images/like.svg" alt="Нравится"></a> -->
 					<button type="button" title="Нравится" class="photo-grid__like"></button>
 				</div>
 			  </li>
@@ -46,7 +44,6 @@
 				<img src="./images/dombai.png" alt="Домбай" class="photo-grid__pic">
 				<div class="photo-grid__element-flex">
 					<h2 class="photo-grid__title">Домбай</h2>
-					<!-- <a href="#" class="photo-grid__like" target="_self"><img src="./images/like.svg" alt="Нравится"></a> -->
 					<button type="button" title="Нравится" class="photo-grid__like"></button>
 				</div>
 			  </li>
@@ -54,7 +51,6 @@
 				<img src="./images/karachaevsk.jpg" alt="Карачаевск" class="photo-grid__pic">
 				<div class="photo-grid__element-flex">
 					<h2 class="photo-grid__title">Карачаевск</h2>
-					<!-- <a href="#" class="photo-grid__like" target="_self"><img src="./images/like.svg" alt="Нравится"></a> -->
 					<button type="button" title="Нравится" class="photo-grid__like"></button>
 				</div>
 			  </li>
@@ -62,7 +58,6 @@
 				<img src="./images/elbrus.png" alt="Гора Эльбрус" class="photo-grid__pic">
 				<div class="photo-grid__element-flex">
 					<h2 class="photo-grid__title">Гора Эльбрус</h2>
-					<!-- <a href="#" class="photo-grid__like photo-grid__like_active" target="_self"><img src="./images/like.svg" alt="Нравится"></a> -->
 					<button type="button" title="Нравится" class="photo-grid__like"></button>
 				</div>
 			  </li>
@@ -70,10 +65,9 @@
 				<img src="./images/dombai.png" alt="Домбай" class="photo-grid__pic">
 				<div class="photo-grid__element-flex">
 					<h2 class="photo-grid__title">Домбай</h2>
-					<!-- <a href="#" class="photo-grid__like" target="_self"><img src="./images/like.svg" alt="Нравится"></a> -->
 					<button type="button" title="Нравится" class="photo-grid__like"></button>
 				</div>
-			  </li>
+			  </li> -->
 			</ul>
 		  </section>
 	</main>
@@ -82,10 +76,10 @@
 		<p class="footer__project">&copy;2022. Mesto Russia</p>
     </footer>
 
-	<div class="popup">
+	<div class="popup popup_profile">
 		<div class="popup__container">
-			<button class="popup__close" type="button" aria-label="Закрыть попап"></button>
-			<form action="#" method="POST" class="popup__form" name="popup__form">
+			<button class="popup__close popup__close_profile" type="button" aria-label="Закрыть попап"></button>
+			<form action="#" method="POST" class="popup__form popup__form_profile" name="popup__form">
 				<h2 class="popup__title">Редактировать профиль</h2>
 				<input type="text" placeholder="Ваше имя" class="popup__input popup__input_type_name" name="input__name">
 				<input type="text" placeholder="Описание" class="popup__input popup__input_type_description" name="input__description">
@@ -93,6 +87,29 @@
 			</form>
 		</div>
 	</div>
+
+	<div class="popup popup_photo">
+		<div class="popup__container">
+			<button class="popup__close popup__close_photo" type="button" aria-label="Закрыть попап"></button>
+			<form action="#" method="POST" class="popup__form popup__form_photo" name="popup__form">
+				<h2 class="popup__title">Новое место</h2>
+				<input type="text" placeholder="Название" class="popup__input popup__input_type_title" name="input__title">
+				<input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_photo" name="input__photo">
+				<input type="submit" value="Сохранить" class="popup__submit">
+			</form>
+		</div>
+	</div>
+
+	<template class="photo-grid-template" id="photo-grid-template">
+		<li class="photo-grid__element">
+		  <img src="" alt="" class="photo-grid__pic">
+		  <div class="photo-grid__element-flex">
+			<h2 class="photo-grid__title"></h2>
+			<button type="button" title="Нравится" class="photo-grid__like"></button>
+		  </div>
+		</li>
+	</template>
+
   </div>
 <script src="./scripts/index.js"></script>
 </body>
