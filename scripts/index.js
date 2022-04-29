@@ -1,12 +1,14 @@
 const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_profile');
 const popupPhoto = document.querySelector('.popup_photo');
+const popupPhotoWindow = document.querySelector('.popup-show-photo');
 
 const openPopupProfile = document.querySelector('.profile__edit-button');
 const openPopupPhoto = document.querySelector('.profile__add-button');
 
 const closePopupProfile = document.querySelector('.popup__close_profile');
 const closePopupPhoto = document.querySelector('.popup__close_photo');
+const closePopupPhotoWindow = document.querySelector('.popup__close_window');
 
 const formProfile = document.querySelector('.popup__form_profile');
 const formPhoto = document.querySelector('.popup__form_photo');
@@ -60,6 +62,17 @@ const handlerDelete = (evt) => {
   evt.target.closest('.photo-grid__element').remove();
 };
 
+const showPhotoCard = (name,link) => {
+  const photoWindow = popupPhotoWindow.querySelector('.popup__photo');
+  const captionWindow = popupPhotoWindow.querySelector('.popup__caption');
+  photoWindow.src = link;
+  photoWindow.alt = name;
+  captionWindow.textContent = name;
+  console.log(photoWindow.src,photoWindow.alt);
+  //console.log('открыт',name,link);
+  popupOpen(popupPhotoWindow);
+};
+
 const generatePhotoCard = (photoCard) => {
   const newPhotoCard = photoTemplate.cloneNode(true);
 
@@ -69,6 +82,8 @@ const generatePhotoCard = (photoCard) => {
   const urlPhotoCard = newPhotoCard.querySelector('.photo-grid__pic');
   urlPhotoCard.src = photoCard.link;
   urlPhotoCard.alt = photoCard.name;
+  urlPhotoCard.addEventListener('click', () => showPhotoCard(photoCard.name,photoCard.link) //() => {console.log('открыт',photoCard.link,photoCard.name)} 
+  );
 
   const likeButton = newPhotoCard.querySelector('.photo-grid__like');
   likeButton.addEventListener('click', handlerLike);
@@ -142,4 +157,5 @@ openPopupPhoto.addEventListener('click', () => { popupOpen(popupPhoto); });
 // closePopup.addEventListener('click',popupClose);
 closePopupProfile.addEventListener('click', () => { popupClose(popupProfile); });
 closePopupPhoto.addEventListener('click', () => { popupClose(popupPhoto); });
+closePopupPhotoWindow.addEventListener('click', () => { popupClose(popupPhotoWindow); });
 formPhoto.addEventListener('submit', formSubmitHandlerPhoto); 
