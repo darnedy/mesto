@@ -56,6 +56,10 @@ const handlerLike = (evt) => {
   evt.target.closest('.photo-grid__like').classList.toggle('photo-grid__like_active');
 };
 
+const handlerDelete = (evt) => {
+  evt.target.closest('.photo-grid__element').remove();
+};
+
 const generatePhotoCard = (photoCard) => {
   const newPhotoCard = photoTemplate.cloneNode(true);
 
@@ -68,6 +72,9 @@ const generatePhotoCard = (photoCard) => {
 
   const likeButton = newPhotoCard.querySelector('.photo-grid__like');
   likeButton.addEventListener('click', handlerLike);
+
+  const deleteButton = newPhotoCard.querySelector('.photo-grid__trash');
+  deleteButton.addEventListener('click', handlerDelete);
 
   return newPhotoCard;
 }
