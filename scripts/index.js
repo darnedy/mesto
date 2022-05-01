@@ -1,4 +1,3 @@
-const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_profile');
 const popupPhoto = document.querySelector('.popup_photo');
 const popupPhotoWindow = document.querySelector('.popup-show-photo');
@@ -16,11 +15,11 @@ const formPhoto = document.querySelector('.popup__form_photo');
 const formPhotoTitle = document.querySelector('.popup__input_type_title');
 const formPhotoUrl = document.querySelector('.popup__input_type_photo');
 
-let formElement = document.querySelector('.popup__container');
-let nameInput = formElement.querySelector('.popup__input_type_name');
-let descriptionInput = formElement.querySelector('.popup__input_type_description');
-let profileName = document.querySelector('.profile__name');
-let profileDescription = document.querySelector('.profile__description');
+const formElement = document.querySelector('.popup__container');
+const nameInput = formElement.querySelector('.popup__input_type_name');
+const descriptionInput = formElement.querySelector('.popup__input_type_description');
+const profileName = document.querySelector('.profile__name');
+const profileDescription = document.querySelector('.profile__description');
 
 const initialCards = [
   {
@@ -68,8 +67,6 @@ const showPhotoCard = (name,link) => {
   photoWindow.src = link;
   photoWindow.alt = name;
   captionWindow.textContent = name;
-  console.log(photoWindow.src,photoWindow.alt);
-  //console.log('открыт',name,link);
   popupOpen(popupPhotoWindow);
 };
 
@@ -82,7 +79,7 @@ const generatePhotoCard = (photoCard) => {
   const urlPhotoCard = newPhotoCard.querySelector('.photo-grid__pic');
   urlPhotoCard.src = photoCard.link;
   urlPhotoCard.alt = photoCard.name;
-  urlPhotoCard.addEventListener('click', () => showPhotoCard(photoCard.name,photoCard.link) //() => {console.log('открыт',photoCard.link,photoCard.name)} 
+  urlPhotoCard.addEventListener('click', () => showPhotoCard(photoCard.name,photoCard.link) 
   );
 
   const likeButton = newPhotoCard.querySelector('.photo-grid__like');
@@ -108,18 +105,14 @@ function formSubmitHandlerPhoto (evt) {
   popupClose(popupPhoto);
 };
 
-
-// formPhoto.addEventListener('submit', formSubmitHandlerPhoto); 
-
-
 // Форма Профиля
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formSubmitHandlerProfile (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
+                          // Так мы можем определить свою логику отправки.
+                          // О том, как это делать, расскажем позже.                                             
 
     // Получите значение полей jobInput и nameInput из свойства value
     // let name = nameInput.value;
@@ -139,10 +132,6 @@ function formSubmitHandlerProfile (evt) {
 // Функции Открыть/Закрыть
 function popupOpen(popupCurrent) {
   popupCurrent.classList.add('popup_opened');
-
-  if (popupCurrent === popupProfile) {
-  nameInput.value = profileName.textContent;
-  descriptionInput.value = profileDescription.textContent; }
 };
 
 function popupClose(popupCurrent) {
@@ -152,10 +141,9 @@ function popupClose(popupCurrent) {
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 formProfile.addEventListener('submit', formSubmitHandlerProfile); 
-openPopupProfile.addEventListener('click', () => { popupOpen(popupProfile); });
-openPopupPhoto.addEventListener('click', () => { popupOpen(popupPhoto); });
-// closePopup.addEventListener('click',popupClose);
-closePopupProfile.addEventListener('click', () => { popupClose(popupProfile); });
-closePopupPhoto.addEventListener('click', () => { popupClose(popupPhoto); });
-closePopupPhotoWindow.addEventListener('click', () => { popupClose(popupPhotoWindow); });
+openPopupProfile.addEventListener('click', () => { nameInput.value = profileName.textContent; descriptionInput.value = profileDescription.textContent; popupOpen(popupProfile);} );
+openPopupPhoto.addEventListener('click', () => popupOpen(popupPhoto) );
+closePopupProfile.addEventListener('click', () => popupClose(popupProfile) );
+closePopupPhoto.addEventListener('click', () =>  popupClose(popupPhoto) );
+closePopupPhotoWindow.addEventListener('click', () =>  popupClose(popupPhotoWindow) );
 formPhoto.addEventListener('submit', formSubmitHandlerPhoto); 
