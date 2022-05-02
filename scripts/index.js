@@ -79,8 +79,7 @@ const generatePhotoCard = (photoCard) => {
   const urlPhotoCard = newPhotoCard.querySelector('.photo-grid__pic');
   urlPhotoCard.src = photoCard.link;
   urlPhotoCard.alt = photoCard.name;
-  urlPhotoCard.addEventListener('click', () => showPhotoCard(photoCard.name,photoCard.link) 
-  );
+  urlPhotoCard.addEventListener('click', () => showPhotoCard(photoCard.name,photoCard.link) );
 
   const likeButton = newPhotoCard.querySelector('.photo-grid__like');
   likeButton.addEventListener('click', handlerLike);
@@ -95,7 +94,7 @@ const renderPhoto = (photoCard) => {
   photoContainer.prepend(generatePhotoCard(photoCard));
 };
 
-initialCards.forEach((photoCard) => {renderPhoto(photoCard)});
+initialCards.forEach((photoCard) => renderPhoto(photoCard));
 
 function formSubmitHandlerPhoto (evt) {
   evt.preventDefault();
@@ -110,23 +109,13 @@ function formSubmitHandlerPhoto (evt) {
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
 function formSubmitHandlerProfile (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                          // Так мы можем определить свою логику отправки.
-                          // О том, как это делать, расскажем позже.                                             
-
-    // Получите значение полей jobInput и nameInput из свойства value
-    // let name = nameInput.value;
-    // let description = descriptionInput.value;
-
-    // Выберите элементы, куда должны быть вставлены значения полей
-    // let profileName = document.querySelector('.profile__name');
-    // let profileDescription = document.querySelector('.profile__description');
-
-    // Вставьте новые значения с помощью textContent
-    profileName.textContent = nameInput.value;
-    profileDescription.textContent =descriptionInput.value;
-
-    popupClose(popupProfile);
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+                        // Так мы можем определить свою логику отправки.
+                        // О том, как это делать, расскажем позже.                                             
+  // Вставьте новые значения с помощью textContent
+  profileName.textContent = nameInput.value;
+  profileDescription.textContent =descriptionInput.value;
+  popupClose(popupProfile);
 };
 
 // Функции Открыть/Закрыть
