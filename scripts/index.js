@@ -1,3 +1,4 @@
+const popup = document.querySelector('.popup');
 const popupProfile = document.querySelector('.popup_profile');
 const popupPhoto = document.querySelector('.popup_photo');
 const popupPhotoWindow = document.querySelector('.popup-show-photo');
@@ -110,29 +111,50 @@ function formSubmitHandlerPhoto (evt) {
 // она никуда отправляться не будет
 function formSubmitHandlerProfile (evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                        // Так мы можем определить свою логику отправки.
-                        // О том, как это делать, расскажем позже.                                             
+                                            
   // Вставьте новые значения с помощью textContent
   profileName.textContent = nameInput.value;
   profileDescription.textContent =descriptionInput.value;
   popupClose(popupProfile);
 };
 
+// Функция закрытия попапа через Esc или клик по Оверлею
+function popupCloseEscOver (evt) {
+  const openedPopup = document.querySelector('.popup_opened');
+  if (openedPopup && (evt.key === 'Escape' || evt.target === openedPopup)) { 
+    popupClose(openedPopup);
+  }
+}
+
+
 // Функции Открыть/Закрыть
 function popupOpen(popupCurrent) {
   popupCurrent.classList.add('popup_opened');
+  
+  const inputList = Array.from(popupCurrent.querySelectorAll('.popup__input'));
+  const buttonElement = popupCurrent.querySelector('.popup__submit');
+  toggleButtonState(inputList, buttonElement);
+
+  document.addEventListener('keydown', popupCloseEscOver);
+  document.addEventListener('mousedown', popupCloseEscOver);
 };
 
 function popupClose(popupCurrent) {
   popupCurrent.classList.remove('popup_opened');
+
+  document.removeEventListener('keydown', popupCloseEscOver);
+  document.removeEventListener('mousedown', popupCloseEscOver);
 };
+
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
 formProfile.addEventListener('submit', formSubmitHandlerProfile); 
 openPopupProfile.addEventListener('click', () => { nameInput.value = profileName.textContent; descriptionInput.value = profileDescription.textContent; popupOpen(popupProfile);} );
-openPopupPhoto.addEventListener('click', () => popupOpen(popupPhoto) );
+openPopupPhoto.addEventListener('click', () => { formPhotoTitle.value = ''; formPhotoUrl.value = ''; popupOpen(popupPhoto)} );
 closePopupProfile.addEventListener('click', () => popupClose(popupProfile) );
 closePopupPhoto.addEventListener('click', () =>  popupClose(popupPhoto) );
 closePopupPhotoWindow.addEventListener('click', () =>  popupClose(popupPhotoWindow) );
 formPhoto.addEventListener('submit', formSubmitHandlerPhoto); 
+
+enableValidation();
