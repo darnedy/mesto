@@ -1,7 +1,7 @@
 .popup__input-error {
   font-weight: 400;
   font-size: 12px;
-  line-height: 15px;  
+  line-height: 15px;
   color: #FF0000;
   position: absolute;
   left: calc(22px + (100vw - 320px)*(14 / 960));
