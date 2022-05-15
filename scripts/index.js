@@ -49,6 +49,15 @@ const initialCards = [
   }
 ]; 
 
+const obj = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+};
+
 // Форма добавления фотографий
 
 const photoTemplate = document.querySelector('#photo-grid-template').content.querySelector('.photo-grid__element');
@@ -130,10 +139,10 @@ function popupCloseEscOver (evt) {
 // Функции Открыть/Закрыть
 function popupOpen(popupCurrent) {
   popupCurrent.classList.add('popup_opened');
-  
+
   const inputList = Array.from(popupCurrent.querySelectorAll('.popup__input'));
   const buttonElement = popupCurrent.querySelector('.popup__submit');
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, obj);
 
   document.addEventListener('keydown', popupCloseEscOver);
   document.addEventListener('mousedown', popupCloseEscOver);
@@ -146,6 +155,8 @@ function popupClose(popupCurrent) {
   document.removeEventListener('mousedown', popupCloseEscOver);
 };
 
+enableValidation(obj);
+
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -157,4 +168,3 @@ closePopupPhoto.addEventListener('click', () =>  popupClose(popupPhoto) );
 closePopupPhotoWindow.addEventListener('click', () =>  popupClose(popupPhotoWindow) );
 formPhoto.addEventListener('submit', formSubmitHandlerPhoto); 
 
-enableValidation();
