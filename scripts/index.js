@@ -110,8 +110,15 @@ initialCards.forEach((photoCard) => renderPhoto(photoCard));
 function handlePhotoFormSubmit (evt) {
   evt.preventDefault();
   renderPhoto({name: formPhotoTitle.value, link: formPhotoUrl.value});
+
   formPhotoTitle.value = '';
   formPhotoUrl.value = '';
+
+  const inputList = Array.from(formPhoto.querySelectorAll('.popup__input')); 
+  const buttonElement = formPhoto.querySelector('.popup__submit'); 
+
+  toggleButtonState(inputList, buttonElement, obj);
+
   closePopup(popupPhoto);
 };
 
@@ -168,6 +175,6 @@ enableValidation(obj);
 // он будет следить за событием “submit” - «отправка»
 formProfile.addEventListener('submit', handleProfileFormSubmit); 
 openPopupProfile.addEventListener('click', () => { nameInput.value = profileName.textContent; descriptionInput.value = profileDescription.textContent; openPopup(popupProfile);} );
-openPopupPhoto.addEventListener('click', () => { formPhotoTitle.value = ''; formPhotoUrl.value = ''; openPopup(popupPhoto)} );
+openPopupPhoto.addEventListener('click', () => { formPhotoTitle.value = ''; formPhotoUrl.value = ''; openPopup(popupPhoto);} );
 formPhoto.addEventListener('submit', handlePhotoFormSubmit); 
 
